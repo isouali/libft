@@ -6,12 +6,13 @@
 /*   By: isouali <isouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:23:20 by isouali           #+#    #+#             */
-/*   Updated: 2021/11/11 19:33:27 by isouali          ###   ########.fr       */
+/*   Updated: 2021/11/18 16:33:38 by isouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -22,7 +23,7 @@ char	*ft_strchr(const char *s, int c)
 	j = ft_strlen(s);
 	while (i <= j)
 	{
-		if (s[i] == c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 		{
 			return ((char *)&s[i]);
 		}
@@ -36,6 +37,6 @@ char	*ft_strchr(const char *s, int c)
 	const char	s[] = "tripouille";
 	int c;	
 	c = 'l';
-	printf("%s\n", ft_strchr(s, 't' + 257));
-	printf("%s", strchr(s, 't' + 257));
+	printf("%s\n", ft_strchr(s, '\0'));
+	printf("%s", strchr(s, '\0'));
 }*/

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouali <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 14:39:34 by isouali           #+#    #+#             */
-/*   Updated: 2021/11/17 23:50:10 by isouali          ###   ########.fr       */
+/*   Created: 2021/11/15 13:41:50 by isouali           #+#    #+#             */
+/*   Updated: 2021/11/18 10:26:39 by isouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
+#include<stdio.h>
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
+	char				*p;
+	unsigned int		i;
 
 	i = 0;
-	if (little[i] == '\0')
-		return ((char *)big);
-	while (big[i] &&  i < len)
+	if (!s)
+		return (0);
+	p = malloc(ft_strlen(s) + 1);
+	if (!p)
+		return (p);
+	while (s[i])
 	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j] && i + j < len)
-			j++;
-		if (!little[j])
-			return ((char *)big + i);
+		p[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
+	p[i] = '\0';
+	return (p);
 }

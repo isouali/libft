@@ -6,7 +6,7 @@
 /*   By: isouali <isouali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:32:11 by isouali           #+#    #+#             */
-/*   Updated: 2021/11/07 11:17:03 by isouali          ###   ########.fr       */
+/*   Updated: 2021/11/17 23:01:11 by isouali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if ((unsigned char)s[i] == (unsigned char)c)
 		{
 			return ((char *)&s[i]);
 		}
